@@ -19,7 +19,6 @@ jobs:
         node-version: [12.x, 14.x]
 
     steps:
-    - name: Checkout
     - uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
@@ -31,5 +30,4 @@ jobs:
       run: npm test
 
     - name: Build the Docker image
-      uses: actions/checkout@v2
       run: docker build . --file Dockerfile --tag wareclouds-playground:$(date +%s)
