@@ -47,6 +47,7 @@ app.use('/clouders', cloudersRouter);
     console.log('Conectado a MongoDB');
   } catch (error) {
     console.log('Hubo un error al conectarse a MongoDB');
+    console.log(error);
   }
 })();
 

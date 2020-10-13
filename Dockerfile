@@ -1,7 +1,7 @@
 FROM node:12-alpine AS base
 
 # Create app directory
-WORKDIR /wareclouds-playground
+WORKDIR /app
 
 # ---------- Builder ----------
 # Creates:
@@ -34,8 +34,8 @@ RUN npm prune --production # Remove dev dependencies
 # ---------- Release ----------
 FROM base AS release
 
-COPY --from=builder /wareclouds-playground/node_modules ./node_modules
-COPY --from=builder /wareclouds-playground/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
 
 USER node
 
